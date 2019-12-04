@@ -6,22 +6,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sevenpeakssoftware.yogendra_b.R
 import com.sevenpeakssoftware.yogendra_b.compose.ViewModelActivity
 import com.sevenpeakssoftware.yogendra_b.databinding.ActivityCarsMainBinding
-import com.sevenpeakssoftware.yogendra_b.repository.CarListRepository
 import com.sevenpeakssoftware.yogendra_b.view.adapter.CarListAdapter
 import com.sevenpeakssoftware.yogendra_b.viewmodel.CarsMainActivityViewModel
 import kotlinx.android.synthetic.main.activity_cars_main.*
 
 class CarsMainActivity : ViewModelActivity() {
-    //    private val viewModel by viewModel<CarsMainActivityViewModel>()
-    private lateinit var carDataRepository: CarListRepository
-    private lateinit var viewModel: CarsMainActivityViewModel
-
+    private val viewModel by viewModel<CarsMainActivityViewModel>()
     private lateinit var binding: ActivityCarsMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_cars_main)
-        viewModel = CarsMainActivityViewModel(carDataRepository)
+
         binding.viewModel = viewModel
 //        binding.lifecycleOwner = this
         initializeUI()
