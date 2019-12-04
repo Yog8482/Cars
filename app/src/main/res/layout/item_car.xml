@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/item_image_car"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/audi_q7" />
+
+    <LinearLayout
+        android:id="@+id/item_car_palette"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/gradient"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:id="@+id/car_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:lineHeight="28dp"
+            android:lineSpacingExtra="8sp"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            tools:text="Q7 - Greatness starts, when you don&apos;t stop." />
+
+        <TextView
+            android:id="@+id/car_date"
+            style="@style/TextStyle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/car_title"
+            android:layout_marginTop="8dp"
+            android:lineHeight="20dp"
+            tools:text="29 November 2017, 15:13" />
+
+        <TextView
+            android:id="@+id/car_ingress"
+            style="@style/TextStyle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/car_date"
+            android:layout_marginTop="13dp"
+            android:lineHeight="20dp"
+            tools:text="The Audi Q7 is the result of an ambitious idea: never cease to improve." />
+    </LinearLayout>
+
+</FrameLayout>
