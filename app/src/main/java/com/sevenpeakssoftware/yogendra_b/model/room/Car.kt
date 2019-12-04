@@ -1,7 +1,9 @@
 package com.sevenpeakssoftware.yogendra_b.model.room
 
+import android.os.Parcelable
 import androidx.room.Entity
 import com.sevenpeakssoftware.yogendra_b.model.CarContent
+import kotlinx.android.parcel.Parcelize
 import java.util.*
 
 
@@ -16,7 +18,7 @@ import java.util.*
  *
  * */
 
-
+@Parcelize
 @Entity(primaryKeys = [("id")])
 data class Car(
     val id: Int,
@@ -28,4 +30,4 @@ data class Car(
     val Changed: Int,
     var tags: List<String>?,
     var content: List<CarContent> = ArrayList()
-)
+):Parcelable
