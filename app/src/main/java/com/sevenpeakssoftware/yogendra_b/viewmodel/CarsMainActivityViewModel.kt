@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.sevenpeakssoftware.yogendra_b.model.Resource
 import com.sevenpeakssoftware.yogendra_b.model.room.Car
 import com.sevenpeakssoftware.yogendra_b.repository.CarListRepository
-import com.sevenpeakssoftware.yogendra_b.utilities.AbsentLiveData
 import javax.inject.Inject
 
 class CarsMainActivityViewModel @Inject
@@ -21,6 +20,7 @@ constructor(
         Log.d("CarmainActVM", "car MainActivity view model")
 
         carListLiveData = carDataRepository.loadCars()
+
     }
 
     fun getCarListValues() = carListLiveData.value

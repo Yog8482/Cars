@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="270dp"
         android:scaleType="fitXY"
-        android:src="@mipmap/audi_q7" />
+         />
 
     <LinearLayout
         android:id="@+id/item_car_palette"
@@ -33,7 +33,7 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="normal"
-            tools:text="Q7 - Greatness starts, when you don&apos;t stop." />
+            tools:text="Title" />
 
         <TextView
             android:id="@+id/car_date"
@@ -43,7 +43,7 @@
             android:layout_below="@id/car_title"
             android:layout_marginTop="8dp"
             android:lineHeight="20dp"
-            tools:text="29 November 2017, 15:13" />
+            tools:text="Date" />
 
         <TextView
             android:id="@+id/car_ingress"
@@ -53,7 +53,7 @@
             android:layout_below="@id/car_date"
             android:layout_marginTop="13dp"
             android:lineHeight="20dp"
-            tools:text="The Audi Q7 is the result of an ambitious idea: never cease to improve." />
+            tools:text="Ingress" />
     </LinearLayout>
 
 </FrameLayout>

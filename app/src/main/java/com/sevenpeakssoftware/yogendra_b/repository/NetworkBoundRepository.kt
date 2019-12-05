@@ -19,6 +19,8 @@ internal constructor() {
     init {
         Log.d("NetworkBoundRepository", "Injection NetworkBoundRepository")
         val loadedFromDB = this.loadFromDb()
+//        fetchFromNetwork(loadedFromDB)
+
         result.addSource(loadedFromDB) { data ->
             result.removeSource(loadedFromDB)
             if (shouldFetch(data)) {
