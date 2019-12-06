@@ -44,6 +44,15 @@ android {
         experimental = true
     }
 
+    sourceSets {
+        androidTest.java.srcDirs += "src/test-common/java"
+        test.java.srcDirs += "src/test-common/java"
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
     dexOptions {
         javaMaxHeapSize "4G"
     }
@@ -62,6 +71,12 @@ dependencies {
     def glideVersion = '4.10.0'
     def retrofit_version = '2.6.2'
     def stethoVersion = '1.5.1'
+    def okhttpVersion = '3.11.0'
+
+    def androidxTestRules = '1.2.0-alpha04'
+    def mockitoKotlinVersion = '2.0.0-RC1'
+    def robolectricVersion = '4.3'
+    def androidxTest = '1.1.0'
 
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -87,7 +102,6 @@ dependencies {
 
     // glide for image
     implementation "com.github.bumptech.glide:glide:$glideVersion"
-//    implementation "com.github.florent37:glidepalette:$glidePaletteVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
     // retrofit
@@ -116,9 +130,15 @@ dependencies {
     implementation "com.facebook.stetho:stetho:$stethoVersion"
     implementation "com.facebook.stetho:stetho-okhttp3:$stethoVersion"
 
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttpVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    // unit test
+    testImplementation "androidx.test:core:$androidxTest"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
+    androidTestImplementation "androidx.test:rules:$androidxTestRules"
 
 }

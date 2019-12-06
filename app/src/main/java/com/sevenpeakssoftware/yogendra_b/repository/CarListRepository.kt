@@ -20,7 +20,7 @@ constructor(
 ) : Repository {
 
     init {
-        Log.d("carListrepository", "Injection DiscoverRepository")
+       //Log.d("carListrepository", "Injection DiscoverRepository")
     }
 
     fun loadCars(isrefresh: Boolean): LiveData<Resource<List<Car>>> {

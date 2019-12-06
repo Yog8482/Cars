@@ -17,7 +17,7 @@ internal constructor(isRefresh: Boolean) {
     private val result: MediatorLiveData<Resource<ResultType>> = MediatorLiveData()
 
     init {
-        Log.d("NetworkBoundRepository", "Injection NetworkBoundRepository")
+//        Log.d("NetworkBoundRepository", "Injection NetworkBoundRepository")
         val loadedFromDB = this.loadFromDb()
         result.addSource(loadedFromDB) { data ->
             result.removeSource(loadedFromDB)

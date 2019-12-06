@@ -20,7 +20,7 @@ constructor(
     private var carPageRefreshLiveData: MutableLiveData<Boolean> = MutableLiveData()
 
     init {
-        Log.d("CarmainActVM", "car MainActivity view model")
+//        Log.d("CarmainActVM", "car MainActivity view model")
 
         carListLiveData = carPageRefreshLiveData.switchMap {
             carPageRefreshLiveData.value?.let { carDataRepository.loadCars(it) }
