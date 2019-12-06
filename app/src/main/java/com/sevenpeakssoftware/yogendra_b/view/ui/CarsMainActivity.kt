@@ -26,7 +26,6 @@ class CarsMainActivity : ViewModelActivity() {
         binding.lifecycleOwner = this
         initializeUI()
 
-
         srlCars.setOnRefreshListener {
             isRefreshPressed = true
             isNetwork = getConnectionStatus(this)
