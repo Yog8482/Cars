@@ -12,18 +12,16 @@ import com.sevenpeakssoftware.yogendra_b.model.Resource
 
 abstract class NetworkBoundRepository<ResultType,
         RequestType : NetworkResponseModel>
-internal constructor() {
+internal constructor(isRefresh: Boolean) {
 
     private val result: MediatorLiveData<Resource<ResultType>> = MediatorLiveData()
 
     init {
         Log.d("NetworkBoundRepository", "Injection NetworkBoundRepository")
         val loadedFromDB = this.loadFromDb()
-//        fetchFromNetwork(loadedFromDB)
-
         result.addSource(loadedFromDB) { data ->
             result.removeSource(loadedFromDB)
-            if (shouldFetch(data)) {
+            if (shouldFetch(data, isRefresh)) {
                 result.postValue(Resource.loading(null))
                 fetchFromNetwork(loadedFromDB)
             } else {
@@ -77,7 +75,7 @@ internal constructor() {
     protected abstract fun saveFetchData(items: RequestType)
 
     @MainThread
-    protected abstract fun shouldFetch(data: ResultType?): Boolean
+    protected abstract fun shouldFetch(data: ResultType?, isRefreshPressed: Boolean): Boolean
 
     @MainThread
     protected abstract fun loadFromDb(): LiveData<ResultType>

@@ -23,62 +23,9 @@ abstract class BaseAdapter :
         return sections
     }
 
-    /** gets mutable an item list on the sections. */
-    fun <T> sectionItems(section: Int): MutableList<Any> {
-        return sections[section]
-    }
-
     /** adds a section on the section list. */
     fun <T> addSection(section: List<T>) {
         sections().add(ArrayList<Any>(section))
-    }
-
-    /** adds a section list on the section list. */
-    fun <T> addSectionList(sections: List<List<T>>) {
-        for (section in sections) {
-            addSection(section)
-        }
-    }
-
-    /** adds an item on the section. */
-    fun addItemOnSection(section: Int, item: Any) {
-        sections()[section].add(item)
-    }
-
-    /** adds an item list on the section. */
-    fun <T> addItemListOnSection(section: Int, items: List<T>) {
-        sections()[section].addAll(ArrayList<Any>(items))
-    }
-
-    /** removes an item on the section. */
-    fun removeItemOnSection(section: Int, item: Any) {
-        sections()[section].remove(item)
-    }
-
-    /** inserts an section on the section list. */
-    fun <T> insertSection(row: Int, section: List<T>) {
-        sections().add(row, ArrayList<Any>(section))
-    }
-
-    /** gets section count. */
-    fun sectionCount(section: Int): Int {
-        if (section > sections().size - 1) return 0
-        return sections()[section].size
-    }
-
-    /** reverses item list on the section. */
-    fun <T> reverseSection(section: Int) {
-        sections()[section].reverse()
-    }
-
-    /** removes a section on the section list. */
-    fun <T> removeSection(section: Int) {
-        sections().removeAt(section)
-    }
-
-    /** clears a section. */
-    fun clearSection(section: Int) {
-        sections()[section].clear()
     }
 
     /** clears all sections. */

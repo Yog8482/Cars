@@ -1,7 +1,7 @@
 package com.sevenpeakssoftware.yogendra_b.model
 
 import com.google.gson.Gson
-import com.google.gson.JsonSyntaxException
+import com.google.gson.JsonSyntaxException as JsonSyntaxException1
 
 /**
  * A generic class that holds a value with its loading status.
@@ -17,7 +17,7 @@ class Resource<out T>(val status: Status, val data: T?, val message: String?) {
       try {
         val gson = Gson()
         errorEnvelope = gson.fromJson(message, ErrorEnvelope::class.java) as ErrorEnvelope
-      } catch (e: JsonSyntaxException) {
+      } catch (e: JsonSyntaxException1) {
         errorEnvelope = ErrorEnvelope(400, message, false)
       }
     }

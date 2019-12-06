@@ -23,14 +23,16 @@ constructor(
         Log.d("carListrepository", "Injection DiscoverRepository")
     }
 
-    fun loadCars(): LiveData<Resource<List<Car>>> {
-        return object : NetworkBoundRepository<List<Car>, CarApiResponse>() {
+    fun loadCars(isrefresh: Boolean): LiveData<Resource<List<Car>>> {
+        return object : NetworkBoundRepository<List<Car>, CarApiResponse>(isrefresh) {
             override fun saveFetchData(items: CarApiResponse) {
                 carDao.insertCarList(cars = items.content)
             }
 
-            override fun shouldFetch(data: List<Car>?): Boolean {
-                return data == null || data.isEmpty()
+            override fun shouldFetch(
+                data: List<Car>?, isRefreshPressed: Boolean
+            ): Boolean {
+                return data == null || data.isEmpty()||isRefreshPressed
             }
 
             override fun loadFromDb(): LiveData<List<Car>> {
